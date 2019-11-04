@@ -19,11 +19,6 @@ When people become more knowledgable about what they are purchasing, it enables 
 Our team will look at the data for all native brands, products, and their ratings. Compare the flavor and the taste to come up with a conclusion that which is the best rated ramen overall, which is the best one under specific settings like spicy ramen. Hopefully we can find a better alternative instant ramen or create a visual branding for ramen labels to educate the public on their purchases.
 
 ### 2.0 Research Questions
-
-- Which ramen are the top 10 based on the dataset?
-- Are there any American products?
-- Which are the top 10 under all American Products?
-- How can those 10 be classified?
 - How does the production of ramen affect climate change?
 - How much waste does ramen produce? Are there any environmentally friendly instant ramen people can switch to?
 
