@@ -1,6 +1,6 @@
 # AH7_INFO_201_Project
 Annabel Lee, Ming Yan, Lee Shi
 
-[Proposal for this project](Proposal_Markdown.rmd)
+[Technical Report](Technical_Report.md)
 
-#### A study of how palm oil in different instant ramen brands affects our wildlife
+#### A report on the gender disparity of wages in the United States.
