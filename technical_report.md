@@ -73,7 +73,7 @@ It excludes part-time workers, self-employed workers and other gender minority g
 Average hourly wages for women and men sorted by City department and age range.
 
 1. **Who created it?** Created on February 4, 2015 by the City of Seattle and published on data.seattle.gov.
-1. **Why was it created?**
+1. **Why was it created?** To compare average hourly wages by department per gender
 1. **Where did you access it?** This dataset is intended for public access and use found on https://catalog.data.gov/dataset/city-of-seattle-wages-comparison-by-gender-average-hourly-wage-by-department-382fb.
 1. **What represents an “observation”?** An observation is considered through hours, earnings, a ratio from men to women (gender gap), and by human count.
 1. **What “variables” does each observation have?**
