@@ -109,7 +109,7 @@ page_five <- tabPanel(
 # Define the first table panel of the second page content
 page_1 <- tabPanel(
   # show with a displayed title
-   titlePanel(title = "histogram part"),
+   titlePanel(title = "histogram"),
    # This content uses a sidebar layout
    sidebarLayout(
      sidebarPanel(
@@ -124,7 +124,7 @@ page_1 <- tabPanel(
                    choices = colors())
    ),
    mainPanel(
-     plotOutput("histgram"),
+     plotOutput("histogram"),
      h3(textOutput("explaination"))
    )
 )
@@ -133,7 +133,7 @@ page_1 <- tabPanel(
 # Define the second table panel of the second page content
 page_2 <- tabPanel(
   # show with a displayed title
-  titlePanel(title = "boxplot part"),
+  titlePanel(title = "boxplot"),
   # This content uses a sidebar layout
   sidebarLayout(
     sidebarPanel(
