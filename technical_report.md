@@ -12,24 +12,21 @@ Autumn 2019
 ```
 ### 1.0 Introduction
 #### 1.1 Problem Situation
+In the US, gender inequalities between men and women in the workplace have been observed for a long time. "Under Title VII of the Civil Rights Act of 1964, employees, job applicants, and union members are protected from sex discrimination at the workplace and at the union hall." ([ACLU](https://www.aclu.org/know-your-rights/sex-discrimination/)) Though policies like these exist, data shows how inequalities in wages between men and women are still observed. It is unfair how 2 people working the same exact job could be paid different amounts based on the factor of one's gender. Many feminist organizations are working within the government sector, educating young generations of equity, and creating awareness towards the public. This issue still affects those around us today and if nothing is done now then future generations will also be affected. We will be looking at a couple different data sets that compare national wages of both genders as well as examining local data for any wage gaps in our hometown of Seattle, Washington. 
 
-In the US, gender inequalities between men and women in the workplace have been observed for a long time. The direct stakeholders target women and men. Indirect stakeholders include: the future generations of girls and boys as the gap greatly affects their lives; the LGBTQ communities which is another minority group overlooked in the paying workforce; companies as a whole because company culture will have to implement not only a change in their policy but a change in attitude of the workforce; and can influence other  countries to push for pay equity.
-
-"Under Title VII of the Civil Rights Act of 1964, employees, job applicants, and union members are protected from sex discrimination at the workplace and at the union hall." ([ACLU](https://www.aclu.org/know-your-rights/sex-discrimination/))
-Though policies like these exist, data shows how inequalities in wages between men and women are still observed. It is unfair how 2 people working the same exact job could be paid different amounts based on the factor of one's gender. Many feminist organizations are working within the government sector, educating young generations of equity, and creating awareness towards the public. This issue still affects those around me today and if nothing is done now then future generations will also be affected.
+The direct stakeholders target women and men. Indirect stakeholders include: the future generations of girls and boys, as the gap will greatly affects their lives; the LGBTQ communities, which is another minority group overlooked in the paying workforce; companies as a whole because company culture will have to implement not only a change in their policy but a change in attitude of the workforce; and other countries as they could be influenced in their economies to push for pay equity. Non-targeted uses of this data could be to an advantage for other communities who are fighting for pay equity.
 
 ##### 1.2 What is the problem?
-Gender disparity in the US workplace is observed specifically through wages and by occupation of women, though policies advocating feminism and equal rights clearly exist. Though there are improvements over the years, we notice that there are still inequitable differences between men and women based on several other factors.
+Gender disparity in the US workplace is apparent specifically through wages and by occupation of women, though policies advocating feminism and equal rights clearly exist. Although the states have been progressively improving over the years, we still notice that there are inequitable differences between men and women based on several other factors. 
 
 ##### 1.3 Why does it matter?
 This problem matters because about half the population of people in the labor force are women. "57.1% of women participate in the labor force, compared to 69.1% of men." ([Catalyst](https://www.catalyst.org/research/women-in-the-workforce-united-states/)) Studies have also shown that "women of color have a large gender wage gap and experience significant cumulative lifetime wage loss as a result." ([Catalyst](https://www.catalyst.org/research/women-in-the-workforce-united-states/)) As the US continues to grow more diverse in ethnic background, it also means that the gap will increase even farther apart especially for POC female groups.  
 
 ##### 1.4 How it will be addressed?
-
-This problem will be addressed by informing our audiences of all age groups, especially the younger generations of clearly visually communicating what is going on and the trends over time. To create an awareness of who is being directly affected and how it could affect those around them.
+This problem will be addressed by informing our audiences of all age groups, especially the younger generations of clearly visually communicating what is going on and the trends over time. To create an awareness of who is being directly affected and how it could affect those around them. We will be creating a Shiny Application that will visualize to our audience a histogram comparing the gender gap to make it more clear how it exists. 
 
 ### 2.0 MAIN RESEARCH QUESTION
-The gender wage gap has been a world-wide issue for long time, however, is it still apparent in the United States of America even after so many feminist progressive movements have been made. Our focus is to explore the difference between male and female employees from the perspective of their yearly incomes across the country. From that, we also want to compare with local data in Seattle, specifically, and how hourly wages as well as number of employees hired are different for each gender.
+The gender wage gap has been a world-wide issue for long time, however, is it still apparent in the United States of America even after so many feminist progressive movements have been made. Our focus is to explore the difference between male and female employees from the perspective of their yearly incomes across the country. From there, we also want to compare with local Seattle data and how hourly wages, number of employees hired, are different for each gender.
 
 
 ### 3.0 DATA SETS
@@ -135,11 +132,11 @@ The strengths of this project was our strong topic as it provided many sources, 
 |------------------------------|---------------------------------|-----------|------------------|
 | Department                   | which department for occupation | string    | department       |
 | Job Title                    | title of occupation             | string    | job title        |
-| Average Hourly Rate          | average hourly earned in a year | numeral   | hours            |
-| Number Employed              | number of people employed       | numeral   | people           |
-| Average of Months/ Longevity | number of months worked         | numeral   | months           |
-| Total Average Hourly Rate    | average rate over months worked | numeral   | hours            |
-| Total Number Employed        | total men and women worked      | numeral   | people           |
+| Average Hourly Rate          | average hourly earned in a year | integer   | hours            |
+| Number Employed              | number of people employed       | integer   | people           |
+| Average of Months/ Longevity | number of months worked         | integer   | months           |
+| Total Average Hourly Rate    | average rate over months worked | integer   | hours            |
+| Total Number Employed        | total men and women working     | integer   | people           |
 
 ### APPENDIX 2: REFLECTIONS
 
@@ -147,7 +144,8 @@ The strengths of this project was our strong topic as it provided many sources, 
 * **Ming Yan:** During the preparation of this project, I have the importance of team working and communication. Before this project, our team did not have a good way of splitting the work and helping each other.From a technical perspective, Shiny is not extremely hard and it is pretty fun to learn. The whole concept of server, ui, is different from what we have learned before but it can be connected. Nevertheless, it is difficult to transform plots from ggplot to Shiny, and we got stuck when building a boxplot. Also, it is hard to make everyone work on the same project and we always run into errors when transporting codes. In the future, everything will be planned forward well before like what we did this time so that each team member could contribute more equally and we should get in touch with the teaching team more frequent too. As for the project itself, more in depth analysis of the graphs will be done, and the graphs themselves will be improved to be easier to be interpreted and understood.
 
 * **Lee Shi:** In this project, one thing I learned is how to find dataset and how to manipulate dataset to find what I am looking for. I came to realize the importance of being able to look at a raw data and analyze the relationship between variables, because without it, raw data doesn’t prove anything. Another important thing I learned is how to build a shiny application, the frustrating part is the beginning of looking at it, I had no idea how it works or how to write it. However, as I read codes from book and Shiny Gallery, I successfully understood it and I am able to write draw some interactive plots with it, which is a satisfying progress for me. I would continue learning it and enrich the shiny page for the final application. In addition, while building the shiny application, I feel my program is a little messy and not really helpful for debugging it if any bugs are found. In the future, I would start planning how to write the whole program before actually work on it. I am not good at coding, however, this project helped me with understanding how should I think as a coder and a thinker for how to organize a program.
-### APPENDIX 3: USE OF ENVISIONING CARDS
-[Indirect Stakeholders](https://www.envisioningcards.com/envision_pdfs/Stakeholders-Indirect-Stakeholders.pdf) Used this envisioning card to help guide and understand my indirect and direct stakeholders of this topic.
 
-[
+### APPENDIX 3: USE OF ENVISIONING CARDS
+[Indirect Stakeholders](https://www.envisioningcards.com/envision_pdfs/Stakeholders-Indirect-Stakeholders.pdf) Used this envisioning card to help guide and understand my indirect and direct stakeholders of this topic. This card revealed who is directly affected by our problem/solution and the impacts it could have on others. 
+
+[Non-targeted Use](https://www.envisioningcards.com/envision_pdfs/Stakeholders-Non-Targeted-Use.pdf) Challenges us to think:  Who might use the data for unplanned or nefarious purposes? In what ways? These questions allows us to think in a reverse-method to open up any problems that we may not have thought of before and be more thoughtful of who might use our discoveries to their advantage. 
