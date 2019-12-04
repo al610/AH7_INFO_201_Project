@@ -5,18 +5,18 @@ source("datasets.R")
 # Define the first page content
 page_one <- tabPanel(
   # show with a displayed title
-  titlePanel("Background & Research Questions"),
+  titlePanel(h5("Background & Research Questions")),
   # show an emphasized title
   em(h1("Background")),
   # paragraph about the background
-  p(strong("Gender disparity in the US workplace is observed
+  p(h3("Gender disparity in the US workplace is observed
            specifically through wages and by occupation of women,
            though policies advocating feminism and equal rights
            clearly exist. Though there are improvements over
            the years, we notice that there are still inequitable
            differences between men and women based on several
            other factors.")),
-  p(strong("This problem matters because about half the population
+  p(h3("This problem matters because about half the population
            of people in the labor force are women. '57.1% of women
            participate in the labor force, compared to 69.1% of
            men.' (Catalyst) Studies have also shown that 'women
@@ -29,7 +29,7 @@ page_one <- tabPanel(
   # show an emphasized title
   em(h1("Research Questions")),
   # paragraph about the research questions
-  p(strong("Gender wage gap has been a world-wide issue for long
+  p(h3("Gender wage gap has been a world-wide issue for long
            time, however, is it still apparent in the United
            States of America even after so many feminist
            progressive movements have been made? Our focus is to
@@ -46,9 +46,9 @@ page_one <- tabPanel(
 # Define the third page content
 page_three <- tabPanel(
   # show with a displayed title
-  titlePanel("Conclusion"),
+  titlePanel(h5("Conclusion")),
   em(h1("Our conclusions:")),
-  p(strong("(1) The strengths of this project was our strong topic
+  p(h3("(1) The strengths of this project was our strong topic
            as it provided many sources, articles, and government
            policies that helped support our research and claim.
            Weaknesses included finding data that perfectly fit
@@ -57,13 +57,13 @@ page_three <- tabPanel(
            a larger sample. Another weakness was making sure our
            dataset had overlapping qualities to create connections
            that are not forceful.")),
-  p(strong("(2) The main lessons we have learned is to find our topic
+  p(h3("(2) The main lessons we have learned is to find our topic
            earlier on and do the research before finding too late
            that there is not enough evidence to support what we want
            to prove. We have also learned to communicate and collaborate
            better as a team by being more transparent and working
            around each others schedules.")),
-  p(strong("(3) In the future, I (Annabel) want to pursue a career that
+  p(h3("(3) In the future, I (Annabel) want to pursue a career that
            intersects information technology and design to create
            social good much like this meaningful project. Learning
            and wrangling with data taught me how I can powerfully
@@ -74,11 +74,11 @@ page_three <- tabPanel(
 # Define the fourth page content
 page_four <- tabPanel(
   # show with a displayed title
-  titlePanel("About the Tech"),
+  titlePanel(h5("About the Tech")),
   # show an emphasized title
   em(h1("Description of this shiny application")),
   # paragraph about this page
-  p(strong("The major components of our shiny application are 5
+  p(h2("The major components of our shiny application are 5
            pages, which includes the introduction page, about us
            page, visualization page, about the tech page and
            Conclusion Page. We loaded our two data sets via csv
@@ -95,21 +95,21 @@ page_four <- tabPanel(
 # Define the fifth page content
 page_five <- tabPanel(
   # show with a displayed title
-  titlePanel("About Us"),
-  h1("Info-201: Technical Foundations of Informatics"),
-  h1("The Information School"),
-  h1("University of Washington"),
-  h1("Autumn 2019"),
-  h2("Group Members: "),
-  h2(em("Annabel Lee, Ming Han, Lee Shi")),
-  p(strong("Our purpose is to explore the gender inequality in
+  titlePanel(h5("About Us")),
+  h3("Info-201: Technical Foundations of Informatics"),
+  h3("The Information School"),
+  h3("University of Washington"),
+  h3("Autumn 2019"),
+  h3("Group Members: "),
+  h3(em("Annabel Lee, Ming Han, Lee Shi")),
+  p(h2("Our purpose is to explore the gender inequality in
            this day and age."))
 )
 
 # Define the first table panel of the second page content
 page_1 <- tabPanel(
   # show with a displayed title
-   titlePanel(title = "histogram"),
+   titlePanel(title = h5("histogram part")),
    # This content uses a sidebar layout
    sidebarLayout(
      sidebarPanel(
@@ -121,11 +121,10 @@ page_1 <- tabPanel(
        br(),
        selectInput(inputId = "bincolor",
                    label = "Color",
-                   choices = colors())
+                   choices = c("white","beige","gold","gray0"))
    ),
    mainPanel(
-     plotOutput("histogram"),
-     h3(textOutput("explaination"))
+     plotOutput("histgram")
    )
 )
 )
@@ -133,35 +132,47 @@ page_1 <- tabPanel(
 # Define the second table panel of the second page content
 page_2 <- tabPanel(
   # show with a displayed title
-  titlePanel(title = "boxplot"),
+  titlePanel(title = h5("boxplot part")),
   # This content uses a sidebar layout
   sidebarLayout(
     sidebarPanel(
-      selectInput("variable", "Please select a topic",
-                  choices = c("Hourly rate" =
-                  "gender difference of the hourly rate"),
-                  selected = "Hourly rate"),
-      checkboxInput("outliers", "Show outliers", TRUE)
+      h3('Input for randomization'),
+      sliderInput('min_dph', 'Minimum Wag Set For Females', value = 1000, min = 0, max = 100, step = 1),
+      sliderInput('min_dph2',  'Minimum Wag Set For Males', value = 1000, min = 0, max = 100, step = 1)
     ),
     mainPanel(
-      h3(textOutput("caption"))
-#      plotOutput("genderplot")
+      plotOutput('BoxPlotFemale'), 
+      plotOutput('BoxPlotMale')
     )
   )
 )
 
+page_3 <- tabPanel(
+  titlePanel(title = h5("table part")),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("job", "Please select a job",
+                  choices = c(Sex_Occupatiosn_and_wages$Occupational_Category)
+                  )
+    ),
+    mainPanel(
+      tableOutput("table")
+    )
+)
+)
 # Define the second page content
 page_two <- navbarMenu(
   # show with a displayed title
-  titlePanel("Visualizations"),
+  titlePanel(h5("Visualizations")),
   # combine these two pages into this page
   page_1,
-  page_2
+  page_2,
+  page_3
 )
 
 # Pass each page to a multi-page layout
 ui <- navbarPage(
-  titlePanel("Gender Difference In Work Places"),
+  titlePanel(h4("Gender Difference In Work Places")),
   page_one,
   page_two,
   page_three,

@@ -3,6 +3,8 @@ library(shiny)
 library("dplyr")
 library("lintr")
 source("datasets.R")
+library(UsingR)
+library(tidyverse)
 
 # The backend which takes the front end data and compute the results.
 server <- function(input, output) {
@@ -80,46 +82,48 @@ server <- function(input, output) {
          xlab = "Female wages(in dollars)",
          main = "Distribution of female wages")
     }
-    # Introduce research question and our conclusion as long as
-    # our future plans.
-    output$explaination <- renderText({
-    paste("We would like to explore if females and males have the same
-          yearly earnings in the same position/department/job in the
-          United State of America. We constructed 3 different histograms
-          in order to show the differences between the wages of males
-          and females. One of the histograms shows the female earnings in
-          the percentage of male earnings accross the nation. The other
-          two show the distribution of how much do males and females earn
-          each year. We found that a majority of females do not earn
-          as much as males do in the same position according these
-          histograms. In the future, we will construct a new histogram
-          which combines the two histograms we have for females' and males'
-          yearly wages. In addition, our users will be able to choose only
-          show males/females.")
-    })
   })
-
-  # Define a boxplot to render in the UI
-  # output$genderplot <- renderPlot({
-
-    # We have not make this part funtional at this point, however,
-    # we have the plan as below.
-    output$caption <- renderText({
-      paste("We want to construct two box plots based on two different
-            types of variables that are hourly wages and number of
-            employees. The first one is based on hourly wages, the
-            y-axis is the wages in dollars and the x-axis is the gender.
-            Two separate boxplots each represents a gender will be
-            placed vertically.The second one is based on number of
-            employees, the y-axis is the count of the employees and the
-            x-axis is the gender. Two separate boxplots each represents
-            a gender will be placed vertically. Users will have options
-            to include or exclude outliers.")
+    
+    # draw a box plot about female wages
+    output$BoxPlotFemale <- renderPlot({
+      Seattle_Wages %>% 
+        mutate(Female_Avg_Hrly_Rate = gsub("[A-Za-z&-]", "", Female_Avg_Hrly_Rate)) %>%
+        filter(!is.na(Female_Avg_Hrly_Rate), str_length(Female_Avg_Hrly_Rate) != 0) %>% 
+        mutate(Female_Avg_Hrly_Rate = as.numeric(Female_Avg_Hrly_Rate)) %>% 
+        filter(Female_Avg_Hrly_Rate > input$min_dph) %>% 
+        ggplot(aes(y = Female_Avg_Hrly_Rate)) +
+        scale_y_log10() +
+        geom_boxplot(outlier.colour="red", outlier.shape=8,
+                     outlier.size=4) +
+        labs(title = "Distribution of Females' Hourly Wages", y = "Dollars")
+    })
+    
+    # draw a box plot about male wages
+    output$BoxPlotMale <- renderPlot({
+      Seattle_Wages %>% 
+        mutate(Male_Avg_Hrly_Rate = gsub("[A-Za-z&-]", "", Male_Avg_Hrly_Rate)) %>%
+        filter(!is.na(Male_Avg_Hrly_Rate), str_length(Male_Avg_Hrly_Rate) != 0) %>% 
+        mutate(Male_Avg_Hrly_Rate = as.numeric(Male_Avg_Hrly_Rate)) %>% 
+        filter(Male_Avg_Hrly_Rate > input$min_dph2) %>% 
+        ggplot(aes(y = Male_Avg_Hrly_Rate)) +
+        scale_y_log10() +
+        geom_boxplot(outlier.colour="red", outlier.shape=8,
+                     outlier.size=4) +
+        labs(title = "Distribution of Males' Hourly Wages", y = "Dollars")
     })
 
-    # boxplot we are planning to draw for the final shiny app.
-    # boxplot(as.formula(formulaText()),
-    #        data = Seattle_Wages$Female_Avg_Hrly_Rate,
-    #        outline = input$outliers)
-#  })
+    # draw a table about each job
+    output$table <- renderTable({
+      df <- Sex_Occupatiosn_and_wages %>% filter(Occupational_Category == input$job)
+      male_employees <- as.data.frame(df$Number_of_Full_Time_Year_Round_Workers_Men_Estimate)
+      female_employees <- as.data.frame(df$Number_of_Full_Time_Year_Round_Workers_Women_Estimate)
+      percent <- as.data.frame(df$Percentage_of_Women_in_Occupational_Category_Estimate)
+      men_wage <- as.data.frame(df$Median_Earnings_In_Dollars_Men_Estimate)
+      women_wage <- as.data.frame(df$Median_Earnings_In_Dollars_Women_Estimate)
+      comb <- cbind(male_employees, female_employees, percent, men_wage, women_wage)
+      colnames(comb) <- c("Total Male Employees", "Total Female Employees",
+                          "Percentage of Women Who Have This Job", "Median Earnings For Men",
+                          "Median Earnings For Women")
+      comb
+    })
 }
