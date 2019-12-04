@@ -118,7 +118,7 @@ The strengths of this project was our strong topic as it provided many sources, 
 
 (2) The main lessons we have learned is to find our topic earlier on and do the research before finding too late that there is not enough evidence to support what we want to prove. We have also learned to communicate and collaborate better as a team by being more transparent and working around each others schedules.   
 
-3) In the future, I (Annabel) want to pursue a career that intersects information technology and design to create social good much like this meaningful project. Learning and wrangling with data taught me how I can powerfully capture my audiences not only with visual appeal but also empirically/ through logos.   
+(3) In the future, I (Annabel) want to pursue a career that intersects information technology and design to create social good much like this meaningful project. Learning and wrangling with data taught me how I can powerfully capture my audiences not only with visual appeal but also empirically/ through logos.   
 
 ### 7.0 References
 [1] Economic Policy Institute, State of Working America Data Library, “[Gender Wage Gap](https://www.epi.org/data/#?subject=wagegap-mf),” 2019.
