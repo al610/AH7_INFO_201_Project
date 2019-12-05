@@ -109,7 +109,7 @@ page_five <- tabPanel(
 # Define the first table panel of the second page content
 page_1 <- tabPanel(
   # show with a displayed title
-   titlePanel(title = h5("histogram part")),
+   titlePanel(title = h5("histograms for income comparison")),
    # This content uses a sidebar layout
    sidebarLayout(
      sidebarPanel(
@@ -132,13 +132,13 @@ page_1 <- tabPanel(
 # Define the second table panel of the second page content
 page_2 <- tabPanel(
   # show with a displayed title
-  titlePanel(title = h5("boxplot part")),
+  titlePanel(title = h5("boxplot for income comparison")),
   # This content uses a sidebar layout
   sidebarLayout(
     sidebarPanel(
       h3('Input for randomization'),
-      sliderInput('min_dph', 'Minimum Wag Set For Females', value = 1000, min = 0, max = 100, step = 1),
-      sliderInput('min_dph2',  'Minimum Wag Set For Males', value = 1000, min = 0, max = 100, step = 1)
+      sliderInput('min_dph', 'Minimum Wage Set For Females', value = 1000, min = 0, max = 70, step = 1),
+      sliderInput('min_dph2',  'Minimum Wage Set For Males', value = 1000, min = 0, max = 100, step = 1)
     ),
     mainPanel(
       plotOutput('BoxPlotFemale'), 
@@ -148,7 +148,7 @@ page_2 <- tabPanel(
 )
 
 page_3 <- tabPanel(
-  titlePanel(title = h5("table part")),
+  titlePanel(title = h5("table for income comparison among jobs")),
   sidebarLayout(
     sidebarPanel(
       selectInput("job", "Please select a job",

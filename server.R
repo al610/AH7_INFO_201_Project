@@ -3,7 +3,6 @@ library(shiny)
 library("dplyr")
 library("lintr")
 source("datasets.R")
-library(UsingR)
 library(tidyverse)
 
 # The backend which takes the front end data and compute the results.
@@ -48,7 +47,7 @@ server <- function(input, output) {
   # and bins. Also, the x-axis and title are setted up.
   hist(without_na[, col], breaks = bins, col = input$bincolor, border = "grey",
        xlab = "female wages in percentage of males'(in percentage)",
-       main = "Histogram of female wages in percentage of males'")
+       main = "Histogram of female wages in percentage of males' in 2018")
   }
 
     # another condition for another histogram.
@@ -65,7 +64,7 @@ server <- function(input, output) {
     hist(without_na[, col], breaks = bins, col = input$bincolor,
          border = "grey",
          xlab = "Male wages(in dollars)",
-         main = "Distribution of male wages")
+         main = "Distribution of male wages in 2018")
   }
     # the other condition.
     else {
@@ -80,7 +79,7 @@ server <- function(input, output) {
     hist(without_na[, col], breaks = bins, col = input$bincolor,
          border = "grey",
          xlab = "Female wages(in dollars)",
-         main = "Distribution of female wages")
+         main = "Distribution of female wages in 2018")
     }
   })
     
@@ -95,7 +94,7 @@ server <- function(input, output) {
         scale_y_log10() +
         geom_boxplot(outlier.colour="red", outlier.shape=8,
                      outlier.size=4) +
-        labs(title = "Distribution of Females' Hourly Wages", y = "Dollars")
+        labs(title = "Distribution of Females' Hourly Wages for Seattle in 2018", y = "Dollars")
     })
     
     # draw a box plot about male wages
@@ -109,7 +108,7 @@ server <- function(input, output) {
         scale_y_log10() +
         geom_boxplot(outlier.colour="red", outlier.shape=8,
                      outlier.size=4) +
-        labs(title = "Distribution of Males' Hourly Wages", y = "Dollars")
+        labs(title = "Distribution of Males' Hourly Wages for Seattle in 2018", y = "Dollars")
     })
 
     # draw a table about each job
